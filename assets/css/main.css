@@ -256,7 +256,7 @@ input, select, textarea {
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
 		margin: 0 0.25em;
-		padding: 0.25em 0.65em;
+		/*padding: 0.25em 0.65em; */
 	}
 
 	pre {
@@ -2217,6 +2217,21 @@ input, select, textarea {
 				}
 
 			}
+
+	.imgarticle_center {
+			display: block;
+			max-width: 50%;
+			align: center;
+			margin-left: auto;
+			margin-right:auto;
+		}
+
+	.imgarticle_left {
+			display: block;
+			max-width: 50%;
+			align: left;
+		}
+	
 
 /* List */
 
