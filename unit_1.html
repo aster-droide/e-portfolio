@@ -77,14 +77,27 @@
 									<code>
 										> summary(dataset[['antisocx']])<br>
    										Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's<br>
-										-1.215  -0.788  -0.185  -0.007   0.528   4.015    6694 <br>
+										-1.215  -0.788  -0.185  -0.007   0.528   4.015    6694
+									</code>
+									</p>
+									<p>Looking at the distance of the median to the min value (-1.03067), compared to the distance of the median to the max value (4.199154), the data shows great disparity in experienced levels of anti-social behaviour. This suggests that only a small portion of the households experiences high levels of anti-social behaviour.<br><br>
+									<code>
+										> min(dataset[['antisocx']], na.rm = TRUE) - median(dataset[['antisocx']], na.rm = TRUE)<br>
+										[1] -1.03067<br>
+										<br>
+										> max(dataset[['antisocx']], na.rm = TRUE) - median(dataset[['antisocx']], na.rm = TRUE)<br>
+										[1] 4.199154<br>			 
 									</code>
 									<br><br>
-
-
+									I choose to further explore this visually, and plot a boxplot representing these scores:<br>
+									<code>
+										> boxplot(dataset[['antisocx']], ylab = 'Anti-social behaviour in their neighbourhood (high score = high levels of anti-social behaviour)')<br>
+ 										> text(y = boxplot.stats(dataset[['antisocx']])$stats, labels = boxplot.stats(dataset[['antisocx']])$stats, x = 1.25)<br>
+									</code>	
+									<br><br>
+									<img src="images/boxplot_unit_1.png" alt="" />
 										
 									</p>
-
 								
 								</div>
 							</section>
