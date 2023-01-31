@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Unit 1</title>
+		<title>Numerical Analysis - unit 1</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -50,9 +50,21 @@
 									<h3>DATA ACTIVITY UNIT 1</h3>
 									<p><i>Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset</i></p>
 										
-									<p>From the dataset’s documentation we can see that the `antisocx` variable has a range of -4.0145574 to 1.2152667, with 6,694 missing values and various other summary statistics: </p>
+									<p>From the dataset’s documentation we can see that the <code>`antisocx`</code> variable has a range of -4.0145574 to 1.2152667, with 6,694 missing values and various other summary statistics: </p>
 									<p>INSERT IMAGE</p>
 								
+									<p>To confirm these statistics, I explore the data in R applying <code>`na.rm=TRUE`</code> to ignore the missing values.
+									<br>
+									The range:
+									<code>
+										> range(dataset[['antisocx']], na.rm = TRUE)
+										[1] -1.215267  4.014557
+									</code<
+									<br>	
+										
+										
+									</p>
+
 								
 								</div>
 							</section>
