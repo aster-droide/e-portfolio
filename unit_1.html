@@ -116,7 +116,7 @@
 									<br><br>
 									Continuing to count the data points that are considered outliers, we see that they make up only 1.44% of the data:<br>
 									<code>
-									> length(which(dataset[['antisocx']] > (IQR(dataset[['antisocx']], na.rm = TRUE) * 1.5) + (quantile(dataset[['antisocx']], p=c(.75), na.rm = TRUE))))
+									> length(which(dataset[['antisocx']] > (IQR(dataset[['antisocx']], na.rm = TRUE) * 1.5) + (quantile(dataset[['antisocx']], p=c(.75), na.rm = TRUE))))<br>
 									[1] 31<br>
 									> 100 / 2149 * 31<br>
 									[1] 1.442531
