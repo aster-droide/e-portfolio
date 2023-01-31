@@ -51,7 +51,7 @@
 									<p><i>Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset</i></p>
 										
 									<p>From the dataset’s documentation we can see that the <code>antisocx</code> variable has a range of -4.0145574 to 1.2152667, with 6,694 missing values and various other summary statistics: </p>
-									<p>INSERT IMAGE</p>
+									<p><img src="images/boxplot_unit_1.png" alt="" /></p>
 								
 									<p>To confirm these statistics, I explore the data in R applying <code>na.rm = TRUE</code> to ignore the missing values.
 									<br><br>	
@@ -94,11 +94,41 @@
 										> boxplot(dataset[['antisocx']], ylab = 'Anti-social behaviour in their neighbourhood (high score = high levels of anti-social behaviour)')<br>
  										> text(y = boxplot.stats(dataset[['antisocx']])$stats, labels = boxplot.stats(dataset[['antisocx']])$stats, x = 1.25)<br>
 									</code>	
-									<br><br>
+									<br>
 									<img src="images/boxplot_unit_1.png" alt="" />
-										
 									</p>
-								
+									
+									<p>From the boxplot we can see that 50% of the data lies roughly between -0.8 and 0.5. According to Bruce et al. (2020), R sets the whiskers of the boxplot to IQR*1.5 by default, resulting in a number of datapoints that are considered outliers.
+									<br><br>
+									However when manually calculating this ‘max’ whisker, I get to a slightly different outcome:<br>
+									<code>
+									> IQR(dataset[['antisocx']], na.rm = TRUE) * 1.5 + quantile(dataset[['antisocx']], p=c(.75), na.rm = TRUE)<br>
+									2.502348
+									</code>
+									<br><br>
+									Either the ‘max’ whisker value is incorrectly displayed on the boxplot, or the default is not IQR*1.5.
+									<br><br>
+									Not including the NA values, there are a total of 2149 entries for the <code>antisocx</code> variable:<br>
+									<code>
+									> length(which(!is.na(dataset[['antisocx']])))<br>
+									[1] 2149
+									</code>
+									<br><br>
+									Continuing to count the data points that are considered outliers, we see that they make up only 1.44% of the data:<br>
+									<code>
+									> length(which(dataset[['antisocx']] > (IQR(dataset[['antisocx']], na.rm = TRUE) * 1.5) + (quantile(dataset[['antisocx']], p=c(.75), na.rm = TRUE))))
+									[1] 31<br>
+									> 100 / 2149 * 31<br>
+									[1] 1.442531
+									</code>
+									</p>
+									
+									<p>Even without knowing the exact representation of the value range, I believe that from this sample we can conclude that only a small part of the population experiences high anti-social behaviour in their neighbourhood. In order to draw more precise conclusions further research could be conducted that considers household demographics.</p>
+									
+									<p><b>References:</b>
+									<br><br>
+									Bruce, P., Bruce, A. and Gedeck, P. (2020). <i>Practical Statistics for Data Scientists.</i> 2nd Edition. California: O'Reilly Media, Inc.
+									</p>
 								</div>
 							</section>
 
