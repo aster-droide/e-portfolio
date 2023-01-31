@@ -54,16 +54,18 @@
 									<p>INSERT IMAGE</p>
 								
 									<p>To confirm these statistics, I explore the data in R applying <code>na.rm = TRUE</code> to ignore the missing values.
-									<br>
-									<br>	
-									The range:
-									<br>
+									<br><br>	
+									The range:<br>
 									<code>
 										> range(dataset[['antisocx']], na.rm = TRUE)<br>
 										[1] -1.215267  4.014557
 									</code<
-									<br>	
-									
+									<br>
+									With an interquartile range of:<br>
+									<code>
+										> IQR(dataset[['antisocx']], na.rm = TRUE)<br>
+										[1] 1.316227
+									</code>
 										
 										
 									</p>
