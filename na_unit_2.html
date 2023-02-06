@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Numerical Analysis - unit 2</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>ASTEROID PANDERUS</strong> </a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="background.html">Background</a></li>
+							<li><a href="numerical_analysis.html">Numerical Analysis</a></li>
+							<li><a href="landing.html">Landing</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Unit 2</h1>
+									</header>
+									
+									<h3>DATA ACTIVITY UNIT 2</h3>
+									<p><i>Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset</i></p>
+										
+									<p>
+										This unit continues to work with the dataset introduced in unit 1.
+										<br><br>
+										For the data activity in this unit I'm tasked to explore whether survey respondents experienced any crime in the 12 months prior to the survey using the variable bcsvictim. I'm further tasked to create a frequency table, and assess whether this variable should be converted to a factor variable. 
+										<br><br>
+										Upon first exploration I notice that this variable consists of binary values. My summary method from last week won't be very descriptive. 
+										<br><br>
+										I explore the variable by creating a frequency table, where 0 = Not a victim of crime and 1 = victim of crime:
+										<pre><code>
+# frequency table
+> table <- table(ds[['bcsvictim']])
+> table
+0    1 
+7460 1383 
+
+# proportion table
+> prop.table(table)
+0         1 
+0.8436051 0.1563949</code></pre>	
+										So let's say roughly 16% of the sample population was a victim of crime in the 12 months preceding this survey. 
+										<br>
+										<br>
+									</p>
+
+									<p>
+										I'm wondering whether the sex (1 = Male, 2 = Female) is relevant at all in the experience of crime:
+										<pre><code>
+# cross classification frequency table
+> table2 = table <- table(ds[['sex']], ds[['bcsvictim']])
+> table2
+
+0       1
+1 3385  652
+2 4075  731
+
+# cross classification proportion table
+> prop.table(table2)
+
+0            1
+1 0.38278865 0.07373063
+2 0.46081647 0.08266425
+
+# by margin
+> prop.table(table2, margin = 1)
+
+0           1
+1 0.8384939 0.1615061
+2 0.8478985 0.1521015</code></pre>	
+										Men and women in this sample seem to experience the frequency of crime relatively similar. 
+										<br>
+										<br>
+									</p>
+
+									<p>
+										When converting the variable to a factor, I'm not sure I see the benefit of this. The variable is already a binary representation as is, and presents more information on its internal structure than when this variable is converted to a factor:
+										<pre><code>
+# information on data object as is
+> str(ds[['bcsvictim']])
+dbl+lbl [1:8843] 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0,...
+@ label      : chr "Experience of any crime in the previous 12 months"
+@ format.spss: chr "F8.0"
+@ labels     : Named num [1:2] 0 1
+	..- attr(*, "names")= chr [1:2] "Not a victim of crime" "Victim of crime"
+
+# information on data object as factor
+> cvict_factor <- factor(ds[['bcsvictim']])
+> str(cvict_factor)
+Factor w/ 2 levels "0","1": 1 1 1 2 1 1 1 1 1 1 ...</code></pre>	
+									</p>
+								</div>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://github.com/aster-droide" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/astrid-van-toor-60a240131/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Astrid van Toor</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
