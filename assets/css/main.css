@@ -2221,7 +2221,6 @@ input, select, textarea {
 	.imgarticle_center {
 			display: block;
 			max-width: 50%;
-			align: center;
 			margin-left: auto;
 			margin-right:auto;
 		}
@@ -2229,7 +2228,6 @@ input, select, textarea {
 	.imgarticle_left {
 			display: block;
 			max-width: 50%;
-			align: left;
 		}
 	
 
@@ -2636,7 +2634,6 @@ input, select, textarea {
 				position: absolute;
 				right: 1.5em;
 				top: 0;
-				vertical-align: middle;
 				width: 36px;
 			}
 
@@ -3201,7 +3198,6 @@ input, select, textarea {
 				line-height: inherit;
 				padding: 0 0.75em;
 				position: relative;
-				vertical-align: middle;
 			}
 
 				#header nav a:last-child {
@@ -3223,7 +3219,6 @@ input, select, textarea {
 						position: absolute;
 						right: 1.5em;
 						top: 0;
-						vertical-align: middle;
 						width: 24px;
 					}
 
@@ -3907,7 +3902,6 @@ input, select, textarea {
 			text-align: right;
 			text-indent: 8em;
 			top: 0;
-			vertical-align: middle;
 			white-space: nowrap;
 			width: 8em;
 		}
