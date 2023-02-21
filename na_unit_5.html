@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Numerical Analysis - unit 5</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>ASTEROID PANDERUS</strong> </a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="background.html">Background</a></li>
+							<li><a href="numerical_analysis.html">Numerical Analysis</a></li>
+							<li><a href="landing.html">Landing</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Unit 5</h1>
+									</header>
+									
+									<h3>DATA ACTIVITY UNIT 5</h3>
+									<p><i>Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset</i></p>
+									<ol>
+										<li>Create a boxplot for the variable 'antisocx'.</li>
+										<li>Create a bar plot using either the barplot() function or the ggplot() function to assess whether or not the survey respondents experienced 
+										crime in the 12 months prior to the survey (use the variable 'bcsvictim'). Give the graph a suitable title and choose a colour for the bars (e.g., orange).</li>
+									</ol>
+									</p>
+
+									<p>
+										Whilst I already had created a boxplot for the 'antisocx' variable in <a href="na_unit_1.html">Unit 1</a>, this task has slightly different requirements in terms of graphics.<br>
+										See results below in both boxplot() - from graphics() - and ggplot().
+	
+									<h4>boxplot() 'antisocx' boxplot</h4>
+										<pre><code>
+> boxplot(ds[['antisocx']], main = "Levels of anti-social behaviour in neighbourhood 'antisocx'", col = "purple", outcol = "blue")<br>
+<img class="imgarticle_left" src="images/boxplot_unit_5.png" alt=""/></code></pre>
+
+
+									<h4>ggplot() 'antisocx' boxplot</h4>	
+									<pre><code>
+ds %>%
+  # set 'antisocx' for x
+  ggplot(aes(antisocx))+
+  # draw boxplot
+  geom_boxplot(fill = "yellow", outlier.colour = "red")+
+  # flip vertically
+  coord_flip()+
+  # add title
+  labs(title = "Levels of anti-social behaviour in neighbourhood 'antisocx'")<br>
+<img class="imgarticle_left" src="images/ggboxplot_unit_5.png" alt=""/></code></pre>
+
+									
+									<h4>ggplot() 'bcsvictim' boxplot</h4>	
+									<pre><code>
+# set variable to factor format otherwise R treats the variables as numeric										
+ggplot(ds, aes(factor(bcsvictim))) +
+  # plot barchart and set colour density to 0.8
+  geom_bar(fill = "coral", alpha = 0.8)+
+  # set title
+  labs(title = "Experience of any crime in the previous 12 months 'bcsvictim'")<br>
+<img class="imgarticle_left" src="images/ggbarplot_unit_5.png" alt=""/></code></pre></code></pre>
+
+                                    </p>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://github.com/aster-droide" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/astrid-van-toor-60a240131/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Astrid van Toor</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
